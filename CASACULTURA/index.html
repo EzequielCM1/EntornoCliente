@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Casa de la cultura</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="./code.js" defer></script>
+</head>
+
+<body>
+    <div id="franjasuperior">
+        TENDENCIAS: <span id="tendenciastexto">José María Mir rediseña el logotipo de Correos.</span>
+    </div>
+
+    <div id="cabecera">
+        <img id="logoayto" src="logo.png" />
+        <p id="titulo">AYUNTAMIENTO DE UTRERA - CASA DE LA CULTURA</p>
+    </div>
+
+    <div id="contenido">
+        <!-- Formulario -->
+        <div id="formulario">
+            <h1>Curso de fotografía</h1>
+            <p>El 18 de Mayo se ha concertado un curso de fotografía para aprender a manejar técnicas de dirección de modelos, iluminación, revelado y postproducción.</p>
+            <p>Se pueden matricular aquellas personas que sean mayores de edad hasta los 67 años. Esta matriculación dispondrá de dos turnos: Mañana y Tarde.</p>
+            
+            <label>Nombre: </label><br>
+            <input type="text" id="txtnombre"><br>
+
+            <label>Edad: </label><br>
+            <input type="number" id="txtedad"><br>
+
+            <label>Turno (Mañana o Tarde): </label><br>
+            <input type="text" id="txtturno"><br>
+
+            <label>Contraseña: </label><br>
+            <input type="password" id="txtcontraseña"><br>
+
+            <label>Verificar contraseña: </label><br>
+            <input type="password" id="txtverificarC"><br>
+
+            <button id="btnvalidar" type="button">Validar</button>
+
+            <div id="errores"></div>
+        </div>
+    </div>
+
+    <div id="contacto">
+        <h1>Contacto</h1>
+        <p><b>Dirección:</b> C/ Rodrigo Caro, 3</p>
+        <p><b>Teléfonos:</b> 95 586 09 31</p>
+        <p><b>Fax:</b> 95 586 20 56</p>
+        <p><b>Correo electrónico:</b> cultura@utrera.org</p>
+        <p><b>Delegada de Cultura:</b> Tamara Casal Hermoso</p>
+        <p><b>Técnico:</b> Rafael Arciniega Vela</p>
+        <p><b>Horario de Atención al Ciudadano:</b> de 9 h a 14 h y de 17 h a 20 h, de lunes a jueves – viernes de 9 h a 14 h.</p>
+        <p><b>Horario de Apertura:</b> de 9 h a 14 h y de 16:30 h a 21:30 h, de lunes a viernes.</p>
+        <p><b>Horario de Verano:</b> de 9 h a 14 h, de lunes a viernes.</p>
+    </div>
+</body>
+</html>
