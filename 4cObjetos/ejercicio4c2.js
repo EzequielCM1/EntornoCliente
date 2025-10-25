@@ -1,58 +1,67 @@
-// Constructor del objeto Ingrediente
-function Ingrediente(nombre, cantidad) {
+"use strict";
+
+let cremas = [];
+
+function Ingredientes(nombre, cantidad) {
     this.nombre = nombre;
-    this.cantidad = cantidad; // en gramos
+    this.cantidad = cantidad;
 }
 
-// Método que devuelve una fila HTML con los datos del ingrediente
-Ingrediente.prototype.toHTMLRow = function() {
+Ingredientes.prototype.toHTMLRow = function(){
     return `<tr><td>${this.nombre}</td><td>${this.cantidad} g</td></tr>`;
-};
+}
 
-// Constructor del objeto Crema
+
 function Crema(nombre, precio, marca) {
     this.nombre = nombre;
     this.precio = precio;
     this.marca = marca;
-    this.ingredientes = []; // Array de objetos Ingrediente
+    this.ingredientes = [];
 }
 
-// Método para añadir un ingrediente
-Crema.prototype.addIngrediente = function(nombre, cantidad) {
-    const nuevoIngrediente = new Ingrediente(nombre, cantidad);
-    this.ingredientes.push(nuevoIngrediente);
+Crema.prototype.addIngrediente = function (nombre, cantidad){
+    const nuevo =  new Ingredientes (nombre, cantidad);
+    this.ingredientes.push(nuevo);
 };
 
-// Método para eliminar el i-ésimo ingrediente
-Crema.prototype.removeIngrediente = function(i) {
-    if (i >= 0 && i < this.ingredientes.length) {
-        this.ingredientes.splice(i, 1);
-    } else {
-        console.log("Índice fuera de rango");
+Crema.prototype.removeIngrediente = function (i){
+    if (i >= 0 && i < this.ingredientes.length){
+        this.ingredientes.splice(i , 1);
     }
 };
 
-// Método que devuelve una tabla HTML con todos los ingredientes
-Crema.prototype.toHTMLTable = function() {
-    let tabla = `<table border="1">
-        <thead>
-            <tr><th>Nombre del Ingrediente</th><th>Cantidad</th></tr>
-        </thead>
-        <tbody>`;
+Crema.prototype.toHTMLTable = function (){
+    let tabla = `<table>
+        <tr><th>Ingrediente</th><th>Cantidad</th></tr>`;
 
-    for (let ing of this.ingredientes) {
+    this.ingredientes.forEach(ing => {
         tabla += ing.toHTMLRow();
-    }
+    });
 
-    tabla += `</tbody></table>`;
-    return tabla;
-};
+     tabla += '</table>';
+     return tabla;
+}
 
-// Ejemplo de uso
-const crema1 = new Crema("Crema Hidratante", 12.99, "Nivea");
 
-crema1.addIngrediente("Agua", 50);
-crema1.addIngrediente("Glicerina", 10);
-crema1.addIngrediente("Aceite de almendras", 5);
 
-console.log(crema1.toHTMLTable());
+
+
+///////
+//Main
+/////
+// ---- Crear una crema y añadir ingredientes ----
+const crema = new Crema("Crema Hidratante", 15.99, "Nivea");
+crema.addIngrediente("Agua", 50);
+crema.addIngrediente("Aloe Vera", 20);
+crema.addIngrediente("Aceite de Coco", 10);
+crema.addIngrediente("Vitamina E", 5);
+
+// ---- Mostrar la información de la crema ----
+document.getElementById("infoCrema").innerHTML = `
+      <p><strong>Nombre:</strong> ${crema.nombre}</p>
+      <p><strong>Precio:</strong> ${crema.precio} €</p>
+      <p><strong>Marca:</strong> ${crema.marca}</p>
+    `;
+
+// ---- Mostrar la tabla de ingredientes ----
+document.getElementById("tablaIngredientes").innerHTML = crema.toHTMLTable();
