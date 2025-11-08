@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de vehiculos</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <script src="objetos.js" defer></script>
+    <script src="code.js" defer></script>
+</head>
+
+<body>
+    <h1>Gestion de Vehiculos</h1>
+    <form action="" id="formVehiculo">
+        <fieldset>
+            <legend>Datos</legend>
+            <label><input type="radio" id="vehiculo" name="tipo" value="coche" checked> Coche</label>
+            <label><input type="radio" id="vehiculo" name="tipo" value="moto"> Moto</label>
+            <br>
+            <label>Marca:</label>
+            <input type="text" id="marca"><br>
+            <label>Modelo:</label>
+            <input type="text" id="modelo"><br>
+            <label>Año:</label>
+            <input type="number" id="año"><br>
+            <label>Precio:</label>
+            <input type="number" id="precio"><br>
+            <label>Stock:</label>
+            <input type="checkbox" id="stock"><br>
+            <label>Matrícula:</label>
+            <input type="text" id="matricula"><br>
+            <h3>Adicionales</h3>
+            <label>Puertas (Coche):</label>
+            <input type="number" id="puertas"><br>
+            
+            <label>Tipo conmbustible (Coche):</label>
+            <input type="text" id="tipo"><br>
+            <label>Tipo de moto (Moto):</label>
+            <input type="text" id="tipoMoto"><br>
+            <label>Cilindrada (Moto):</label>
+            <input type="number" id="cilindrada"><br>
+
+        </fieldset>
+
+        <button type="button" id="btnAgregar">Enviar</button>
+        <button type="button" id="btnMostrar">Mostrar list</button>
+    </form>
+
+    <hr>
+    <h2>Vehiculos del Concesionario</h2>
+    <pre id="mostrarLista"></pre>
+
+</body>
+
+</html>
