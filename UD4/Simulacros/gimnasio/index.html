@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión del Gimnasio</title>
+
+    <style>
+        section { display:none; padding:15px; border:1px solid #ccc; margin-top:20px; }
+        #mensajes { padding:10px; margin-top:10px; font-weight:bold; }
+    </style>
+
+    <script src="objetos.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <h1>Gestión del Gimnasio</h1>
+
+    <nav>
+        <button id="btnAlta">Alta Alumno</button>
+        <button id="btnEstado">Cambiar Estado</button>
+        <button id="btnListado">Listado</button>
+        <button id="btnTotales">Totales</button>
+    </nav>
+
+    <div id="mensajes"></div>
+
+    <!-- ALTA -->
+    <section id="seccionAlta">
+        <h2>Alta de Alumno</h2>
+
+        <form id="frmAltaAlumno">
+            ID: <input type="text" id="idAlu" required><br><br>
+            Nombre: <input type="text" id="nombreAlu"><br><br>
+            Edad: <input type="number" id="edadAlu"><br><br>
+
+            Plan:
+            <select id="planAlu">
+                <option value="Básico">Básico</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <!-- ESTADO -->
+    <section id="seccionEstado">
+        <h2>Cambiar Estado del Alumno</h2>
+
+        ID: <input type="text" id="idEstado"><br><br>
+        <button id="btnActivar">Activar</button>
+        <button id="btnDesactivar">Desactivar</button>
+    </section>
+
+    <!-- LISTADO -->
+    <section id="seccionListado">
+        <h2>Listado de Alumnos</h2>
+
+        <table border="1" id="tablaAlumnos">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Nombre</th><th>Edad</th>
+                    <th>Plan</th><th>Estado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <!-- TOTALES -->
+    <section id="seccionTotales">
+        <h2>Estadísticas</h2>
+
+        <p>Total alumnos: <span id="totalAlumnos">0</span></p>
+        <p>Activos (cuota pagada): <span id="totalActivos">0</span></p>
+        <p>Pendientes: <span id="totalPendientes">0</span></p>
+    </section>
+
+</body>
+</html>

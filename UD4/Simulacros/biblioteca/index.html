@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulacro Examen - Biblioteca Digital</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<script src="objeto.js" defer></script>
+<script src="codigo.js" defer></script>
+
+</head>
+<body>
+  <header>
+    <h1>Simulacro Examen - Biblioteca Digital</h1>
+    <p>Usa clases, formularios dinámicos, localStorage y tablas para gestionar los libros.</p>
+  </header>
+
+  <nav>
+    <button id="btnAlta">📘 Alta Libro</button>
+    <button id="btnPrestamo">📚 Préstamo / Devolución</button>
+    <button id="btnTotales">📊 Ver Totales</button>
+    <button id="btnListado">📋 Ver Listado</button>
+  </nav>
+  
+  <main>
+    <!-- FORMULARIO ALTA -->
+    <section id="seccionAlta" class="seccionOculta">
+      <h2>Registrar nuevo libro</h2>
+      <form id="frmAltaLibro">
+        <input type="text" id="idLibro" placeholder="ID Libro" required>
+        <input type="text" id="tituloLibro" placeholder="Título" required>
+        <input type="text" id="autorLibro" placeholder="Autor" required>
+        <select id="categoriaLibro" required>
+          <option value="">-- Categoría --</option>
+          <option value="Ficción">Ficción</option>
+          <option value="Ciencia">Ciencia</option>
+          <option value="Historia">Historia</option>
+          <option value="Arte">Arte</option>
+        </select>
+        <button type="submit">Registrar Libro</button>
+      </form>
+    </section>
+
+    <!-- FORMULARIO PRÉSTAMO -->
+    <section id="seccionPrestamo" class="seccionOculta">
+      <h2>Préstamo / Devolución de libro</h2>
+      <form id="frmPrestamoLibro">
+        <input type="text" id="idPrestamo" placeholder="ID Libro" required>
+        <button type="button" id="btnPrestar">Prestar</button>
+        <button type="button" id="btnDevolver">Devolver</button>
+      </form>
+    </section>
+
+    <!-- SECCIÓN TOTALES -->
+    <section id="seccionTotales" class="seccionOculta">
+      <h2>Estadísticas de la Biblioteca</h2>
+      <ul>
+        <li>Total de libros: <span id="totalLibros">0</span></li>
+        <li>Libros prestados: <span id="totalPrestados">0</span></li>
+        <li>Libros disponibles: <span id="totalDisponibles">0</span></li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN LISTADO -->
+    <section id="seccionListado" class="seccionOculta">
+      <h2>Listado de Libros</h2>
+      <table border="1" id="tablaLibros">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- MENSAJES -->
+    <div id="mensajes"></div>
+  </main>
+
+  <footer>
+    <p>Examen Simulacro - Programación en JavaScript</p>
+  </footer>
+
+  <style>
+    .seccionOculta { display: none; }
+    #mensajes {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</body>
+</html>

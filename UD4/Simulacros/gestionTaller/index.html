@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión Taller Reparación</title>
+    <style>
+        section { display:none; padding:15px; border:1px solid #ccc; margin-top:20px; }
+        #mensajes { padding:10px; margin-top:10px; font-weight:bold; }
+    </style>
+    
+    <script src="objetos.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <h1>Gestión del Taller de Reparación</h1>
+
+    <nav>
+        <button id="btnAlta">Alta Vehículo</button>
+        <button id="btnEstado">Cambiar Estado</button>
+        <button id="btnListado">Listado</button>
+        <button id="btnTotales">Totales</button>
+    </nav>
+
+    <div id="mensajes"></div>
+
+    <!-- SECCIÓN ALTA -->
+    <section id="seccionAlta">
+        <h2>Alta de Vehículo</h2>
+        <form id="frmAltaVehiculo">
+            <label>ID:</label><input type="text" id="idVeh" required><br><br>
+            <label>Marca:</label><input type="text" id="marcaVeh"><br><br>
+            <label>Modelo:</label><input type="text" id="modeloVeh"><br><br>
+            <label>Propietario:</label><input type="text" id="propVeh"><br><br>
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <!-- SECCIÓN CAMBIO ESTADO -->
+    <section id="seccionEstado">
+        <h2>Cambiar Estado de Vehículo</h2>
+        <label>ID:</label><input type="text" id="idEstado"><br><br>
+        <button id="btnMarcarReparado">Marcar Reparado</button>
+        <button id="btnMarcarPendiente">Marcar Pendiente</button>
+    </section>
+
+    <!-- SECCIÓN LISTADO -->
+    <section id="seccionListado">
+        <h2>Listado de Vehículos</h2>
+        <table border="1" id="tablaVehiculos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Propietario</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <!-- SECCIÓN TOTALES -->
+    <section id="seccionTotales">
+        <h2>Totales</h2>
+        <p>Total vehículos: <span id="totalVehiculos">0</span></p>
+        <p>En reparación: <span id="totalReparacion">0</span></p>
+        <p>Finalizados: <span id="totalFinalizados">0</span></p>
+    </section>
+</body>
+</html>

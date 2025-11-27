@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+    <script src="ejercicio4b.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Ejercicio 4</h1>
+    </header>
+
+    <form action="#" name="formulario">
+        <fieldset>
+            <legend>Tipo de helado</legend>
+            <select name="helados" id="helados">
+                <option value="vainilla">Vainilla</option>
+                <option value="fresa">Fresa</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="nata">Nata</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Nota de sabor</legend>
+            <input type="radio" name="nota" value="1"><label>1</label>
+            <input type="radio" name="nota" value="2"><label>2</label>
+            <input type="radio" name="nota" value="3"><label>3</label>
+            <input type="radio" name="nota" value="4"><label>4</label>
+            <input type="radio" name="nota" value="5"><label>5</label>
+        </fieldset>
+
+        <button type="button" id="votar">Votar</button>
+    </form>
+
+    <div class="notice"></div>
+</body>
+
+</html>

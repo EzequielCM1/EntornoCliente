@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="objetos.js" defer></script>
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Canciones y Ficheros</h1>
+<p>Crea una clase Fichero cuyos atributos sean nombreFichero y tamaño y que tenga un método extensión() que devuelva la extensión del fichero y un método getDatos() que devuelva una cadena de caracteres con el nombre del fichero y el tamaño entre paréntesis.
+Crea una clase Canción que herede de fichero cuyos atributoas serán nombreCanción y duración y tendrá un método getDatos() que devolverá en una cadena de caracteres el nombre de la canción, la duración y el tamaño del fichero. </p>
+    <p>Crea una web que cuatro textboxes (para el nombre del fichero, el tamaño, el nombre de la canción y la duración respectivamente), un grupo de radio buttons y dos botones: Agregar y Mostrar.
+Al arrancar se creará un array de ficheros vacío.
+Los radio buttons tendrán dos opciones: fichero y canción.
+Cuando se pulse el botón de Agregar se mirará el radio button selecionado. Si la opción elegida es canción, se recuperarán los datos que correspondan de los textboxes, se creará un objeto de tipo Canción y se añadirá al array de ficheros. Si la opción elegida es fichero se creará un objeto de tipo Fichero y se añadirá al array.
+Cuando se pulse el botón de Mostrar se mostrará el contenido del array en una lista, llamando para cada objeto del array al método getDatos().</p>
+ 
+<h1>Canciones y Ficheros</h1>
+
+  <form id="formDatos">
+    <label>Nombre del fichero:</label>
+    <input type="text" id="nombreFichero" required><br>
+
+    <label>Tamaño (KB):</label>
+    <input type="number" id="tamanio" required><br>
+
+    <label>Nombre de la canción:</label>
+    <input type="text" id="nombreCancion"><br>
+
+    <label>Duración (min):</label>
+    <input type="number" id="duracion"><br>
+
+    <fieldset>
+      <legend>Tipo</legend>
+      <label><input type="radio" name="tipo" value="fichero" checked> Fichero</label>
+      <label><input type="radio" name="tipo" value="cancion"> Canción</label>
+    </fieldset>
+
+    <button type="button" id="btnAgregar">Agregar</button>
+    <button type="button" id="btnMostrar">Mostrar</button>
+  </form>
+
+  <h2>Lista de elementos</h2>
+  <ul id="lista"></ul>
+</body>
+</html>

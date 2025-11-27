@@ -1,0 +1,181 @@
+{
+    "Sacar Element de ID": {
+        "prefix": "getid",
+        "body": [
+            "const ${1:element} = document.querySelector(\"#${2:id}\");"
+        ],
+        "description": "Obtener elemento por ID"
+    },
+    "Boton click funcionalidad": {
+        "prefix": "cl",
+        "body": [
+            "${1:element}.addEventListener('click', ${2:handler});"
+        ],
+        "description": "Añadir evento click a botón"
+    },
+    "Crear prompt": {
+        "prefix": "prompt",
+        "body": [
+            "const ${1:variable} = prompt('${2:Título}', '${3:Valor por defecto}');"
+        ],
+        "description": "Crear un prompt en JavaScript"
+    },
+    "Crear confirm": {
+        "prefix": "confirm",
+        "body": [
+            "let confirmacion = confirm('X pregunta');"
+        ],
+        "description": "Crear un prompt en JavaScript"
+    },
+    "Eliminar espacios": {
+        "prefix": "nospaces",
+        "body": [
+            "${1:texto} = ${1:texto}.replace(/\\\\s+/g, \"\");"
+        ],
+        "description": "Eliminar todos los espacios de un texto"
+    },
+    "Crear Cookie": {
+        "prefix": "cookie",
+        "body": [
+            "document.cookie = \"${1:nombre}=\" + ${2:valor} + \"; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/\";"
+        ],
+        "description": "Crear una cookie con expiración"
+    },
+"Leer Cookie": {
+    "prefix": "getcookie",
+    "body": [
+        "// Recuerda que el nombre debe ser el de la cookie concreta que quieras buscar",
+        "function conseguirValorCookie(nombre) {",
+        "    const cookies = document.cookie.split(\";\");",
+        "    for (let i = 0; i < cookies.length; i++) {",
+        "        const cookie = cookies[i].trim();",
+        "        if (cookie.startsWith(nombre + \"=\")) {",
+        "            return cookie.substring(nombre.length + 1);",
+        "        }",
+        "    }",
+        "    return null;",
+        "}",
+        "const ${3:valorCookie} = conseguirValorCookie(\"${1:nombre}\");"
+    ],
+    "description": "Función para leer el valor de una cookie"
+},
+    "formularioRegistro": {
+        "prefix": "formulario",
+        "body": [
+            "<form action=\"/enviar\" method=\"post\">",
+            "  <label for=\"nombre\">Nombre:</label>",
+            "  <input type=\"text\" id=\"nombre\" name=\"nombre\" required>",
+            "  <label for=\"email\">Email:</label>",
+            "  <input type=\"email\" id=\"email\" name=\"email\" required>",
+            "  <label for=\"password\">Contraseña:</label>",
+            "  <input type=\"password\" id=\"password\" name=\"password\" required>",
+            "  <label for=\"fecha\">Fecha de nacimiento:</label>",
+            "  <input type=\"date\" id=\"fecha\" name=\"fecha\">",
+            "  <label for=\"genero\">Género:</label>",
+            "  <select id=\"genero\" name=\"genero\">",
+            "    <option value=\"masculino\">Masculino</option>",
+            "    <option value=\"femenino\">Femenino</option>",
+            "    <option value=\"otro\">Otro</option>",
+            "  </select>",
+            "</form>"
+        ],
+        "description": "Formulario de Registro Básico"
+    },
+    "Tabla Básica HTML": {
+        "prefix": "tabla",
+        "body": [
+            "<table>",
+            "    <thead>",
+            "        <tr>",
+            "            <th>${1:Encabezado 1}</th>",
+            "            <th>${2:Encabezado 2}</th>",
+            "            <th>${3:Encabezado 3}</th>",
+            "        </tr>",
+            "    </thead>",
+            "    <tbody>",
+            "        <tr>",
+            "            <td>${4:Dato 1}</td>",
+            "            <td>${5:Dato 2}</td>",
+            "            <td>${6:Dato 3}</td>",
+            "        </tr>",
+            "        <tr>",
+            "            <td>${7:Dato 4}</td>",
+            "            <td>${8:Dato 5}</td>",
+            "            <td>${9:Dato 6}</td>",
+            "        </tr>",
+            "    </tbody>",
+            "</table>",
+            "$0"
+        ],
+        "description": "Crea una tabla HTML básica con thead y tbody"
+    },
+    "listasHTML": {
+        "prefix": "lista",
+        "body": [
+            "<ul>",
+            "  <li>${1:Elemento 1}</li>",
+            "  <li>${2:Elemento 2}</li>",
+            "  <li>${3:Elemento 3}</li>",
+            "</ul>",
+            "$0"
+        ],
+        "description": "Lista no ordenada (con viñetas)"
+    },
+    "listaOrdenada": {
+        "prefix": "lista-ordenada",
+        "body": [
+            "<ol>",
+            "  <li>${1:Primer elemento}</li>",
+            "  <li>${2:Segundo elemento}</li>",
+            "  <li>${3:Tercer elemento}</li>",
+            "</ol>",
+            "$0"
+        ],
+        "description": "Lista ordenada (numerada)"
+    },
+    "listaDefinicion": {
+        "prefix": "lista-definicion",
+        "body": [
+            "<dl>",
+            "  <dt>${1:Término 1}</dt>",
+            "  <dd>${2:Definición 1}</dd>",
+            "  <dt>${3:Término 2}</dt>",
+            "  <dd>${4:Definición 2}</dd>",
+            "</dl>",
+            "$0"
+        ],
+        "description": "Lista de definiciones"
+    },
+    "listaAnidada": {
+        "prefix": "lista-anidada",
+        "body": [
+            "<ul>",
+            "  <li>${1:Elemento 1}",
+            "    <ul>",
+            "      <li>${2:Subelemento 1.1}</li>",
+            "      <li>${3:Subelemento 1.2}</li>",
+            "    </ul>",
+            "  </li>",
+            "  <li>${4:Elemento 2}</li>",
+            "</ul>",
+            "$0"
+        ],
+        "description": "Listas dentro de otras listas"
+    },
+    
+    "DOMContentLoaded Event": {
+        "prefix": "domready",
+        "body": [
+            "document.addEventListener('DOMContentLoaded', ${1:functionName});"
+        ],
+        "description": "Añadir evento cuando el DOM está cargado"
+    },
+  "querySelectorTrim": {
+    "prefix": "qsval",
+    "body": [
+      "const ${1:variable} = document.querySelector('${2:#selector}').value.trim();"
+    ],
+    "description": "Crea un querySelector con .value.trim()"
+  }
+    
+}
