@@ -1,50 +1,53 @@
 "use strict";
 
+
+/////////////////////
+// MAIN
+/////////////////////
+
 const votos = [];
-const notice = document.querySelector(".notice");
 
-// --- FUNCIÓN PARA ACTUALIZAR LA NOTICE ---
-function actualizarResultados() {
-    const sabores = ["vainilla", "fresa", "chocolate", "nata"];
-    let html = "<h3>Resultados actuales</h3>";
+document.querySelector("#btnVotar").addEventListener("click", e=>{
+  //1.- Recuperamos el sabor
+  const sabor = document.querySelector("#sltSabor").value;
+  // console.log(sabor);
 
-    sabores.forEach(sabor => {
-        const votosSabor = votos.filter(v => v.sabor === sabor);
-        const cantidad = votosSabor.length;
+  //2.- Recuperamos la puntuación
+  const puntos = document.querySelector("[name=radio]:checked").value;
 
-        const media = cantidad > 0
-            ? (votosSabor.reduce((acc, v) => acc + v.nota, 0) / cantidad).toFixed(2)
-            : 0;
-
-        const vecesMax = votosSabor.filter(v => v.nota === 5).length;
-
-        html += `
-            <p>
-                <strong>${sabor.toUpperCase()}:</strong><br>
-                Votos: ${cantidad}<br>
-                Media: ${media}<br>
-                Veces con 5 puntos: ${vecesMax}
-            </p>
-        `;
-    });
-
-    notice.innerHTML = html;
-}
+  //3.- Creamos el objeto y lo añadimos al array de votos
+  votos.push(  {"sabor":sabor, "puntos": Number(puntos)}  );
+});
 
 
-// --- BOTÓN VOTAR ---
-document.querySelector("#votar").addEventListener("click", () => {
-    const tipo = document.querySelector("#helados").value;
-    const notaSeleccionada = document.querySelector('input[name="nota"]:checked');
 
-    if (!notaSeleccionada) {
-        alert("Debes seleccionar una nota.");
-        return;
-    }
+document.querySelector("#btnResultados").addEventListener("click", e=>{
+  let puntosVainilla = 0;
+  let puntosFresa = 0;
+  let puntosChocolate = 0;
 
-    const nota = Number(notaSeleccionada.value);
+  // Recorremos los votos y los sumamos por separado
+  for(let voto of votos){
+    if( voto.sabor == "Vainilla")
+      puntosVainilla += voto.puntos;
+    else if( voto.sabor == "Fresa")
+      puntosFresa += voto.puntos;
+    else
+      puntosChocolate += voto.puntos;
+  }
 
-    votos.push({ sabor: tipo, nota });
+  const dialogoResultado = document.querySelector("#dialogoResultado");
+  dialogoResultado.innerHTML = `
+  <h2>Resultados de los votos</h2>
+  <p>Puntuación para el helado de vainilla: ${puntosVainilla}</p>
+  <p>Puntuación para el helado de fresa: ${puntosFresa}</p>
+  <p>Puntuación para el helado de chocolate: ${puntosChocolate}</p>
+  <button id="btnCerrarDialogo">Aceptar</button>
+  `;
 
-    actualizarResultados(); // <<--- ACTUALIZA AUTOMÁTICAMENTE
+  document.querySelector("#btnCerrarDialogo").addEventListener("click", e=>{
+    e.target.closest("dialog").close();
+  });
+
+  dialogoResultado.showModal();
 });

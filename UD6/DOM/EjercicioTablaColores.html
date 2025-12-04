@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+    <script src="tablacolores.js" defer></script>
+    <style>
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+        .autogrid {
+            --min-col-size: 100px;
+            display: grid;
+            gap: 1rem;
+            /*auto-fill es mejor que autofit si el nº de elementos va a cambiar (añadir, filtrar, ...)*/
+            grid-template-columns:
+                repeat(auto-fill, minmax(min(var(--min-col-size), 100%), 1fr));
+        }
+
+        .autogrid div {
+            min-height: 6rem;
+            display: grid;
+            place-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tablaColores" class="autogrid">
+        <p>Borrar un color</p>
+        <div style="background-color:#e00;">Rojo</div>
+        <div style="background-color:#2b2;">Verde</div>
+        <div style="background-color:#00f;">Azul</div>
+        <div style="background-color:#eb3;">Amarillo</div>
+        <div style="background-color:#f19;">Rosa</div>
+        <div style="background-color:#73a;">Morado</div>
+        <div style="background-color:#4ed;">Turquesa</div>
+    </div>
+
+    <div id="divAcción">
+    </div>
+</body>
+
+</html>

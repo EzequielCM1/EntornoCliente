@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="ejercicio6b.js" defer></script>
+</head>
+<body>
+
+<h1>Ejercicio 6</h1>
+
+<form id="form" target="_blank">
+  
+  <label>Nickname:
+    <input type="text" id="nick" required minlength="3" maxlength="8"
+           pattern="^[A-Za-z][A-Za-z0-9^.,:;]{2,7}$">
+  </label>
+
+  <label>PIN:
+    <input type="password" id="pin1" required minlength="4" maxlength="4" pattern="\d{4}">
+  </label>
+
+  <label>Repite PIN:
+    <input type="password" id="pin2" required minlength="4" maxlength="4" pattern="\d{4}">
+  </label>
+
+  <fieldset>
+    <legend>¿Indicar día de nacimiento?</legend>
+    <label><input type="radio" name="nac" value="no" checked> No</label>
+    <label><input type="radio" name="nac" value="si"> Sí</label>
+  </fieldset>
+
+  <fieldset id="fecha" style="opacity:0.5;">
+    <legend>Fecha de nacimiento</legend>
+    <label>Día: <input type="number" id="dia" min="1" max="31" pattern="\[0-9]"></label>
+    <label>Mes: <input type="number" id="mes" min="1" max="12" pattern="\[0-9]"></label>
+    <label>Año: <input type="number" id="anio" min="1900" pattern="\[0-9]"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Colores (elige 2)</legend>
+    <label><input type="checkbox" class="col" value="rojo"> Rojo</label>
+    <label><input type="checkbox" class="col" value="verde"> Verde</label>
+    <label><input type="checkbox" class="col" value="azul"> Azul</label>
+  </fieldset>
+
+  <button type="reset">Reset</button>
+  <button type="submit">Enviar</button>
+
+</form>
+
+<dialog id="dialog"></dialog>
+
+</body>
+</html>
