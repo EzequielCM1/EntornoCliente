@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+    <script src="ejercicio6.js" defer></script>
+</head>
+
+<body>
+    <h2>Lista original</h2>
+
+<ul class="listaAlumnos" id="lista">
+  <li>Tomás Tuerzo</li>
+  <li>Aitor Tilla</li>
+  <li>Sara Mago</li>
+  <li>Pancho Colate</li>
+  <li>Ana Tema</li>
+</ul>
+
+<br>
+
+<button id="btnCrearTabla">Crear tabla</button>
+
+<br><br>
+
+<!-- Aquí se creará la tabla -->
+<div id="zonaTabla"></div>
+
+<br><br>
+
+<h3>Añadir alumno</h3>
+<form id="formulario">
+  <input type="text" id="txtNombre" placeholder="Nombre">
+  <input type="text" id="txtApellido" placeholder="Apellido">
+  
+  <label>
+    <input type="checkbox" id="chkFinal" checked>
+    Añadir al final
+  </label>
+  
+  <button type="button" id="btnAdd">Añadir</button>
+</form>
+</body>
+
+</html>
