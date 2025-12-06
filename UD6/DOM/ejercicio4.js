@@ -1,81 +1,45 @@
 "use strict";
 
-const alumnoList = document.getElementById('alumnos');
-const aprobadosList = document.getElementById('aprobados');
-const suspensosList = document.getElementById('suspensos');
+///////////////
+// FUNCTION
+///////////////
 
+///////////////
+// MAIN
+///////////////
 
-function getSelectedEstado(){
-    return document.querySelector('input[name="estado"]:checked').value;
-}
+// 1.- Recuperamos las etiquetas de las listas
+const listaAlumnos = document.querySelector("#listaAlumnos");
+const listaSuspensos = document.querySelector("#listaSuspensos");
+const listaAprobados = document.querySelector("#listaAprobados");
 
-function moverAlumno(event){
-    const li = event.target;
-    const parentId = li.parentElement.id;
+// 2.- La funcionalidad de la lista de alumnos
+listaAlumnos.addEventListener("click", e=>{
+  if( e.target.tagName == "LI" ){
+    const li = e.target;
+    const estado = document.querySelector("[name=radioSuspenso]:checked").value;
 
-    if(parentId === 'alumnos'){
-        const estado = getSelectedEstado();
-        if(estado === "aprobado"){
-            aprobadosList.appendChild(li);
-        }else if (estado === "suspenso"){
-            suspensosList.insertBefore(li, suspensosList.firstChild);
-        }
-    }else if (parentId === "suspensos"){
-        alumnoList.appendChild(li);
+    if(estado ==="suspenso"){
+      listaSuspensos.append(li);
+    } 
+    else{
+      listaAprobados.append(li);
     }
-
-}
-
-
-function addClickListeners(list){
-    list.addEventListener('click', function(e) {
-        if(e.target.tagName === 'LI') {
-          moverAlumno(e);
-        }
+  }
 });
-}
 
-addClickListeners(alumnoList);
-addClickListeners(suspensosList);
-addClickListeners(aprobadosList);
+// 3.- La funcionalidad de la lista de aprobados y suspensos
 
-// const alumnosList = document.getElementById('alumnos');
-//     const aprobadosList = document.getElementById('aprobados');
-//     const suspensosList = document.getElementById('suspensos');
+listaSuspensos.addEventListener("click", e=>{
+  if( e.target.tagName == "LI" ){
+    const li = e.target;
+    listaAlumnos.append(li);
+  }
+});
 
-//     function getSelectedEstado() {
-//       return document.querySelector('input[name="estado"]:checked').value;
-//     }
-
-//     // Función para mover un alumno
-//     function moverAlumno(event) {
-//       const li = event.target;
-//       const parentId = li.parentElement.id;
-
-//       if (parentId === 'alumnos') {
-//         const estado = getSelectedEstado();
-//         if (estado === 'aprobado') {
-//           // Mover al final de la lista de aprobados
-//           aprobadosList.appendChild(li);
-//         } else if (estado === 'suspenso') {
-//           // Mover al inicio de la lista de suspensos
-//           suspensosList.insertBefore(li, suspensosList.firstChild);
-//         }
-//       } else if (parentId === 'suspensos') {
-//         // Volver a la lista de alumnos
-//         alumnosList.appendChild(li);
-//       }
-//     }
-
-//     // Añadir listener a todas las listas que puedan moverse
-//     function addClickListeners(list) {
-//       list.addEventListener('click', function(e) {
-//         if(e.target.tagName === 'LI') {
-//           moverAlumno(e);
-//         }
-//       });
-//     }
-
-//     addClickListeners(alumnosList);
-//     addClickListeners(suspensosList);
-
+listaAprobados.addEventListener("click", e=>{
+  if( e.target.tagName == "LI" ){
+    const li = e.target;
+    listaAlumnos.append(li);
+  }
+});

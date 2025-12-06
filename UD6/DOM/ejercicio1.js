@@ -1,22 +1,27 @@
 "use strict";
 
-// Recuperamos el elemento con id="resultado"
-const res = document.getElementById("resultado");
+const divResultado = document.querySelector("#resultado");
 
-// 1) Cambiar el texto del primer <p> para que diga "Lista de animales"
-const primerParrafo = res.querySelector("p");
-primerParrafo.textContent = "Lista de animales";
+divResultado.firstElementChild.textContent = "Lista de animales";
 
-// 2) Cambiar el último elemento de la lista a "Lobo"
-const lista = res.querySelector("ul");
-const ultimoLi = lista.lastElementChild;
-ultimoLi.textContent = "Lobo";
+const listaUL = divResultado.firstElementChild.nextElementSibling;
 
-// 3) Cambiar el texto del <strong> a "de agua"
-const strong = res.querySelector("strong");
-strong.textContent = "de agua";
+listaUL.lastElementChild.textContent = "Lobo";
 
-// 4) Mostrar por pantalla el contenido del último párrafo
-const parrafos = res.querySelectorAll("p");
-const ultimoParrafo = parrafos[parrafos.length - 1];
-console.log(ultimoParrafo.textContent); // o alert(...)
+listaUL.lastElementChild
+  .previousElementSibling
+  .firstElementChild
+  .textContent = "de agua";
+
+// listaUL.children[2].firstElementChild.textContent = "de agua";
+
+console.log( divResultado.lastElementChild.textContent );
+
+const a = document.querySelector("#enlace");
+a.href="http://wwww.google.es";
+
+
+
+const parrafo = document.querySelector("#parrafo");
+parrafo.dataset.iddeproducto = 23;
+parrafo.dataset.otroIdDeProducto = 23;
